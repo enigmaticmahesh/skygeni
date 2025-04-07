@@ -50,8 +50,8 @@ const DonutChart2 = ({data: sampleData}) => {
 
         // Another arc that won't be drawn. Just for labels positioning
         const outerArc = d3.arc()
-        .innerRadius(radius * 1.25)
-        .outerRadius(radius - 1)
+        .innerRadius(radius * 0.95)
+        .outerRadius(radius * 0.95)
       
         const pie = d3.pie()
             .padAngle(1 / radius)
@@ -66,7 +66,7 @@ const DonutChart2 = ({data: sampleData}) => {
       
         const svg = d3.select(svgRef.current)
             .attr("width", width)
-            .attr("height", height)
+            // .attr("height", height)
             .attr("viewBox", [-width / 2, -height / 2, width, height])
             .attr("style", "max-width: 100%;");
       
@@ -105,7 +105,7 @@ const DonutChart2 = ({data: sampleData}) => {
             // const angle = (d.startAngle + d.endAngle) / 2; // Midpoint angle
             const angle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
             const baseOffset = 20; // Base distance from the centroid
-            const incrementalOffset = 10; // Incremental distance for each label
+            const incrementalOffset = 50; // Incremental distance for each label
 
             // Calculate the label position based on the angle and incremental offset
             const offset = baseOffset + (incrementalOffset * d.index); // Incremental offset
@@ -165,7 +165,7 @@ const DonutChart2 = ({data: sampleData}) => {
     }, [sampleData])
     
     return (
-        <div><svg ref={svgRef} /></div>
+        <div><svg height={600} ref={svgRef} /></div>
     )
 }
 
