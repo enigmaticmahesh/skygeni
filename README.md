@@ -1,3 +1,5 @@
+![Example Image](localhost_5173_.png)
+
 ## Getting Started
 
 To setup the project, follow these simple steps.
